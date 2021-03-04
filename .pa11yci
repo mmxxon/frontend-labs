@@ -1,6 +1,7 @@
 {
     "urls": [
         "./src/form.html",
-        "./src/compact_card.html"
+        "./src/compact_card.html",
+        "./src/full_card.html"
     ]
 }
