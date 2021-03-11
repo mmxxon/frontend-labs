@@ -43,3 +43,5 @@ jobs:
       run: npm run lint
     - name: Check style
       run: npm run stylelint
+    - name: Check accessibility
+      run: npm run pa11y-ci
