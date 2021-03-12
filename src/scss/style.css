@@ -1,0 +1,37 @@
+.header,
+.nav,
+#top-list,
+#filter {
+  display: flex;
+}
+
+.header,
+.nav {
+  justify-content: space-between;
+}
+
+#top-list {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#favorites {
+  display: grid;
+  grid-template-rows: [label] 1fr [items] 1fr;
+  grid-template-columns: [start] 1fr [middle] 1fr [end] 1fr;
+}
+
+hr {
+  width: 50%;
+  margin: auto;
+}
+
+tr:nth-child(even) {
+  background: #f9f5f9;
+}
+
+table thead th {
+  border-bottom: 1px solid #000;
+}
+
+/*# sourceMappingURL=style.css.map */
