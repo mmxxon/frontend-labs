@@ -6,7 +6,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --open --inline",
     "build": "rm -f build && cross-env NODE_ENV=production webpack --progress",
     "lint": "eslint src/js",
-    "stylelint": "stylelint src/css",
+    "stylelint": "stylelint src/scss src/css",
     "pa11y-ci": "pa11y-ci"
   },
   "devDependencies": {
