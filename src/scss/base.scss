@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Playfair+Display:wght@900&display=swap');
+$sexy-orange: #f75c49;
+$sexy-blue: #65a3be;
+$border-orange: #f99589;
+$hover-orange: #cc4836;
+$hover-blue: #548eaa;
+
+body {
+  margin: {
+    left: 3%;
+    right: 3%;
+  }
+
+  box-shadow: 8px 0 15px -4px #999, -8px 0 15px -4px #999;
+}
+
+header,
+#teachers,
+#statistics,
+#about,
+footer {
+  margin: {
+    left: 8.3%;
+    right: 8.3%;
+  }
+}
+
+hr {
+  width: 50%;
+  margin: auto;
+  margin: {
+    top: 3%;
+    bottom: 2%;
+  }
+
+  border-top: 1.5px solid #222;
+}
+
+h2 {
+  font: 2.3em PT Sans, Segoe UI, Arial, sans-serif;
+  margin-bottom: 4%;
+}
+
+.star {
+  color: #ecec02;
+  cursor: pointer;
+}
+
+// Teacher item
+.teacher {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  > .star {
+    font-size: 120%;
+    position: absolute;
+    right: 18%;
+    top: 3%;
+  }
+
+  .far {
+    transition: 0.2s;
+    opacity: 0;
+    color: #f3f37a;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .name {
+    width: 60%;
+    font: 1.5em PT Sans, Segoe UI, Arial, sans-serif;
+  }
+
+  .country {
+    margin: {
+      top: 3%;
+      bottom: 20%;
+    }
+
+    font: 0.7em PT Sans, Segoe UI, Arial, sans-serif;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: #222;
+
+    div {
+      > img {
+        width: 105%;
+        height: 105%;
+        border-radius: 50%;
+      }
+
+      font: 1.3em PT Sans, Segoe UI, Arial, sans-serif;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $sexy-orange;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px $border-orange solid;
+      overflow: hidden;
+
+      > img,
+      p {
+        transition: 0.6s ease;
+        transform: scale(1);
+        user-select: none;
+      }
+
+      &:hover {
+        > img,
+        p {
+          transform: scale(1.1);
+        }
+
+        border-color: $hover-orange;
+      }
+    }
+  }
+}
+
+// I really like to split files, sorry
+@import 'header', 'teachers', 'stats', 'fav', 'about', 'footer', 'popup';

@@ -1,0 +1,51 @@
+@import 'animations';
+
+header {
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+#header-top {
+  padding-top: 3%;
+  align-items: center;
+  padding-bottom: 5%;
+
+  form {
+    display: flex;
+    align-items: stretch;
+
+    input {
+      margin-right: 20px;
+      border-radius: 3px;
+      border: 2px #767676 solid;
+    }
+
+    > button {
+      padding: {
+        left: 20px;
+        right: 20px;
+        top: 10px;
+        bottom: 10px;
+      }
+    }
+  }
+}
+
+#nav-header {
+  display: flex;
+  justify-content: space-between;
+  min-width: 400px;
+
+  > a {
+    text-decoration: none;
+    color: $sexy-orange;
+    font: 1.4em PT Sans, Segoe UI, Arial, sans-serif;
+
+    &:hover {
+      color: $hover-orange;
+    }
+  }
+}
