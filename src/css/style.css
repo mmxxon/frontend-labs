@@ -530,4 +530,38 @@ footer {
   filter: blur(5px);
 }
 
+@media only screen and (max-width: 768px) {
+  .header-top,
+.header-bottom,
+#search-header,
+nav {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+  }
+
+  #search-header > input {
+    margin-bottom: 5%;
+  }
+
+  #fav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slider {
+    display: none;
+  }
+
+  #nav-footer {
+    min-width: unset;
+    height: 2%;
+  }
+
+  body {
+    box-shadow: unset;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
