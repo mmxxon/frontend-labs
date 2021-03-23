@@ -42,8 +42,6 @@
   .close {
     cursor: pointer;
     position: absolute;
-    top: 8%;
-    right: 4%;
     transition: all 200ms;
     font-size: 100%;
     font-weight: bold;
@@ -102,9 +100,49 @@
   margin: 40px auto;
   padding: 2% 3%;
   width: 400px;
+  font: 1em PT Sans, Segoe UI, Arial, sans-serif;
+
+  .close {
+    top: 4%;
+    right: 6%;
+  }
 
   form {
     text-align: left;
+
+    label,
+    input {
+      margin-bottom: 3%;
+    }
+
+    input {
+      -moz-appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    button {
+      padding: {
+        top: 8%;
+        bottom: 8%;
+      }
+
+      font: 2em PT Sans, Segoe UI, Arial, sans-serif;
+      font-weight: bold;
+      background-color: #fff;
+      color: $sexy-orange;
+      border: 2px solid $sexy-orange;
+
+      &:hover {
+        color: #fff;
+        background-color: $hover-orange;
+        border-color: $hover-orange;
+      }
+    }
   }
 }
 
@@ -115,6 +153,11 @@
 
   .star {
     font-size: 160%;
+  }
+
+  .close {
+    top: 8%;
+    right: 4%;
   }
 
   details > summary {

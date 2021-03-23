@@ -79,3 +79,20 @@
 .teacher-selected > div {
   border-color: $hover-orange;
 }
+
+.gender-outer-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  .gender-inner-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+}
+
+.back-wrap {
+  display: flex;
+  justify-content: space-between;
+}

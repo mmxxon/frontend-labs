@@ -23,7 +23,7 @@
          <form id="search-header">
             <input type="text" placeholder="Enter name to search"
                aria-label="Search Field">
-            <button type="submit">Search</button>
+            <button id="search-button" type="submit">Search</button>
          </form>
       </div>
       <div id="header-bottom">
@@ -39,17 +39,15 @@
    <main>
       <section id="popup-form" class="overlay">
          <div class="popup">
-            <div>
-               <h2>Add teacher</h2>
-               <a class="close" onclick="closeForm()"><i class="fa fa-times"></i></a>
-            </div>
+            <h2>Add teacher</h2>
+            <a class="close" onclick="closeForm()"><i class="fa fa-times"></i></a>
             <form>
                <label for="name">Name: </label>
                <input id="name" type="text" name="name" placeholder="Dmitry Gordon"
                   required />
                <label for="country">Country: </label>
                <select id="country" name="country" required>
-                  <option>select country</option>
+                  <option value="">select country</option>
                   <option value="AF">Afghanistan</option>
                   <option value="AX">Aland Islands</option>
                   <option value="AL">Albania</option>
@@ -313,13 +311,20 @@
                   placeholder="dmitry@gordon.com" required /><br>
                <label for="birthdate">Birth date: </label>
                <input id="birthdate" type="number" min="10" max="99" required /><br>
-               <input type="radio" id="male" name="gender" value="male">
-               <label for="male">Male</label><br>
-               <input type="radio" id="female" name="gender" value="female">
-               <label for="female">Female</label><br>
-               <label for="color">Background color: </label>
-               <input id="color" type="color" name="backcolor" required /><br>
-               <button type="submit">Submit form</button>
+               <div class="gender-outer-wrap">
+                  <p>Sex</p>
+                  <div class="gender-inner-wrap">
+                     <input type="radio" id="male" name="gender" value="male" required>
+                     <label for="male">Male</label><br>
+                     <input type="radio" id="female" name="gender" value="female">
+                     <label for="female">Female</label><br>
+                  </div>
+               </div>
+               <div class="back-wrap">
+                  <label for="color">Background color: </label>
+                  <input id="color" type="color" name="backcolor" required /><br>
+               </div>
+               <button type="submit">Add</button>
             </form>
          </div>
       </section>
