@@ -462,6 +462,7 @@ footer {
   margin: 40px auto;
   padding: 2% 3%;
   width: 400px;
+  max-height: 80%;
   font: 1em PT Sans, Segoe UI, Arial, sans-serif;
 }
 #popup-form > .popup .close {
