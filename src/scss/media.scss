@@ -14,8 +14,7 @@
   }
 
   #fav-list {
-    flex-direction: column;
-    align-items: center;
+    overflow-x: scroll;
   }
 
   .slider {
