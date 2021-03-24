@@ -1,8 +1,8 @@
-#filter {
+.filter {
   display: flex;
   margin-bottom: 2%;
 
-  > label {
+  label {
     color: #999;
 
     &:hover {
@@ -10,7 +10,7 @@
     }
   }
 
-  > input {
+  input {
     appearance: none;
     outline: 1px solid #999;
     width: 15px;
@@ -25,74 +25,24 @@
     &:checked {
       background-color: $sexy-orange;
     }
-
-    // transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-    //
-    // &:checked {
-    //   color: #fff;
-    //   background-color: $hover-orange;
-    //   background-color: transparent;
-    //   text-shadow: none;
-    // }
-    //
-    // &::before {
-    //   display: block;
-    //   position: absolute;
-    //   left: 0;
-    //   top: 0;
-    //   height: 0;
-    //   width: 100%;
-    //   z-index: -1;
-    //   content: '';
-    //   color: #000;
-    //   background: $sexy-orange;
-    //   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-    // }
-    //
-    // &:checked::before {
-    //   bottom: 0%;
-    //   top: auto;
-    //   height: 100%;
-    // }
   }
 
-  #photo-label {
+  .photo-label {
     padding-right: 5%;
     margin-right: 3%;
     border-right: 2px dotted #999;
   }
 
-  #photo-filter {
+  .photo-filter {
     margin-left: 4%;
   }
 }
 
-#top-list {
+.teacher-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 180px);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   margin: {
     left: auto;
     right: auto;
   };
-}
-
-.teacher-selected > div {
-  border-color: $hover-orange;
-}
-
-.gender-outer-wrap {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-
-  .gender-inner-wrap {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-  }
-}
-
-.back-wrap {
-  display: flex;
-  justify-content: space-between;
 }

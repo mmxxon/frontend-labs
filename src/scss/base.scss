@@ -30,13 +30,13 @@ header,
 #statistics {
   &::after {
     display: block;
-    width: 50%;
     margin: auto;
     margin: {
       top: 3%;
       bottom: 2%;
     }
 
+    width: 50%;
     height: 1px;
     background-color: #222;
     content: "";
@@ -57,6 +57,22 @@ header,
   content: "";
 }
 
+h1 {
+  color: #fff;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 250%;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-shadow: -0.04em -0.016em $sexy-orange, 0.04em 0.016em #000;
+  margin: 0;
+  transition: 0.3s;
+  animation: logo-back 0.7s linear;
+
+  &:hover {
+    animation: logo 0.7s ease infinite alternate;
+  }
+}
+
 h2 {
   font: 2.3em PT Sans, Segoe UI, Arial, sans-serif;
   margin-bottom: 4%;
@@ -68,6 +84,10 @@ h2 {
 }
 
 // Teacher item
+.teacher-selected > div {
+  border-color: $hover-orange;
+}
+
 .teacher {
   display: flex;
   flex-direction: column;
@@ -79,8 +99,8 @@ h2 {
   > .star {
     font-size: 120%;
     position: absolute;
-    right: 12%;
-    top: 0;
+    right: 15%;
+    top: 2%;
   }
 
   .far {
@@ -107,7 +127,7 @@ h2 {
     font: 0.7em PT Sans, Segoe UI, Arial, sans-serif;
   }
 
-  a {
+  .image {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -115,8 +135,8 @@ h2 {
     color: #222;
     cursor: pointer;
 
-    div {
-      > img {
+    .image-content {
+      img {
         width: 105%;
         height: 105%;
         border-radius: 50%;
@@ -134,7 +154,7 @@ h2 {
       border: 3px $border-orange solid;
       overflow: hidden;
 
-      > img,
+      img,
       p {
         transition: 0.6s ease;
         transform: scale(1);
@@ -142,7 +162,7 @@ h2 {
       }
 
       &:hover {
-        > img,
+        img,
         p {
           transform: scale(1.1);
         }

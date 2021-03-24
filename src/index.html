@@ -18,16 +18,16 @@
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
    <header>
-      <div id="header-top">
+      <div class="header-top">
          <h1>Teachinder</h1>
-         <form id="search-header">
-            <input type="text" placeholder="Enter name to search"
+         <form class="search-header">
+            <input class="search-input" type="text" placeholder="Enter name to search"
                aria-label="Search Field">
-            <button id="search-button" type="submit">Search</button>
+            <button class="search-button" type="submit">Search</button>
          </form>
       </div>
-      <div id="header-bottom">
-         <nav id="nav-header" aria-label="Navigation">
+      <div class="header-bottom">
+         <nav class="nav-header" aria-label="Navigation">
             <a href="#teachers">Teachers</a>
             <a href="#statistics">Statistics</a>
             <a href="#favorites">Favorites</a>
@@ -41,7 +41,7 @@
          <div class="popup">
             <h2>Add teacher</h2>
             <a class="close" onclick="closeForm()"><i class="fa fa-times"></i></a>
-            <form>
+            <form class="form-content">
                <label for="name">Name: </label>
                <input id="name" type="text" name="name" placeholder="Dmitry Gordon"
                   required />
@@ -305,26 +305,29 @@
                <input id="city" type="text" name="city" required />
                <label for="phone">Phone number: </label>
                <input id="phone" type="tel" name="phone" pattern="^[+]?[0-9]{9,12}$"
-                  placeholder="+380123456789" required /><br>
+                  placeholder="+380123456789" required />
                <label for="email">Email: </label>
                <input id="email" type="email" name="email" autocomplete="on"
-                  placeholder="dmitry@gordon.com" required /><br>
+                  placeholder="dmitry@gordon.com" required />
                <label for="birthdate">Birth date: </label>
-               <input id="birthdate" type="number" min="10" max="99" required /><br>
+               <input id="birthdate" type="number" min="10" max="99" required />
                <div class="gender-outer-wrap">
                   <p>Sex</p>
                   <div class="gender-inner-wrap">
                      <input type="radio" id="male" name="gender" value="male" required>
-                     <label for="male">Male</label><br>
+                     <label for="male">Male</label>
                      <input type="radio" id="female" name="gender" value="female">
-                     <label for="female">Female</label><br>
+                     <label for="female">Female</label>
                   </div>
                </div>
-               <div class="back-wrap">
+               <div class="color-outer-wrap">
                   <label for="color">Background color: </label>
-                  <input id="color" type="color" name="backcolor" required /><br>
+                  <div class="color-inner-wrap">
+                     <i class="fas fa-palette"></i>
+                     <input id="color" type="color" name="backcolor" required />
+                  </div>
                </div>
-               <button type="submit">Add</button>
+               <button class="form-submit" type="submit">Add</button>
             </form>
          </div>
       </section>
@@ -356,33 +359,34 @@
                <summary>toggle map</summary>
                <iframe title="Location map"
                   src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d19136.6971163916!2d30.341894955072373!3d50.47182896048031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sua!4v1614968881548!5m2!1sen!2sua"
-                  width="600" height="450" style="border:0;" allowfullscreen=""
+                  allowfullscreen=""
                   loading="lazy"></iframe>
             </details>
          </div>
       </section>
       <section id="teachers">
          <h2>Top teachers</h2>
-         <fieldset id="filter">
+         <fieldset class="filter">
             <p>Filter by:</p>
-            <input id="photo-filter" type="checkbox">
-            <label id="photo-label" for="photo-filter">Show only with photo</label>
+            <input class="photo-filter" id="photo-filter" type="checkbox">
+            <label class="photo-label" for="photo-filter">Show only with photo</label>
             <input id="fav-filter" type="checkbox">
-            <label for="fav-filter">Show only favorites</label>
+            <label class="photo-label" for="fav-filter">Show only favorites</label>
          </fieldset>
-         <ul id="top-list">
+         <ul class="teacher-list" id="top-list">
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div><img src="images/teacher0.jpg" alt="teacher
-                                 image"></div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
+                     <img src="images/teacher0.jpg" alt="teacher image">
+                  </div>
                   <p class="name">Dmytro Gordon</p>
                </a>
                <i class="star fas fa-star"></i>
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <img src="images/teacher1.jpg" alt="teacher
                      image">
                   </div>
@@ -392,8 +396,8 @@
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <img width="100" src="images/teacher2.jpg" alt="teacher
                      image">
                   </div>
@@ -403,8 +407,8 @@
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <img src="images/teacher3.jpg" alt="teacher
                      image">
                   </div>
@@ -414,17 +418,18 @@
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div><img src="images/teacher4.jpg" alt="teacher
-                  image"></div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
+                     <img src="images/teacher4.jpg" alt="teacher image">
+                  </div>
                   <p class="name">Dmytro Gordon</p>
                </a>
                <i class="star fas fa-star"></i>
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <img src="images/teacher5.jpg" alt="teacher
                              image">
                   </div>
@@ -434,8 +439,8 @@
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <img src="images/teacher6.jpg" alt="teacher
                      image">
                   </div>
@@ -445,8 +450,8 @@
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <img width="100" src="images/teacher7.jpg" alt="teacher
                      image">
                   </div>
@@ -456,8 +461,8 @@
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <img src="images/teacher8.jpg" alt="teacher
                      image">
                   </div>
@@ -467,8 +472,8 @@
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <p aria-label="Teacher initials">Pi.Vo.</p>
                   </div>
                   <p class="name">Pierre Voclain</p>
@@ -477,8 +482,8 @@
                <p class="country">Ukraine</p>
             </li>
             <li class="teacher">
-               <a onclick="openInfo()">
-                  <div>
+               <a class="image" onclick="openInfo()">
+                  <div class="image-content">
                      <img src="images/max.png" alt="teacher
                      image">
                   </div>
@@ -491,7 +496,7 @@
       </section>
       <section id="statistics">
          <h2>Statistics</h2>
-         <table>
+         <table class="stats-table">
             <thead>
                <tr>
                   <th class="first-col">Name</th>
@@ -573,12 +578,12 @@
       </section>
       <section id="favorites">
          <h2>Favorites</h2>
-         <div id="carousel">
+         <div class="carousel">
             <a class="slider" id="slider-prev"><i class="fa fa-chevron-left"></i></a>
-            <ul id="fav-list">
+            <ul class="teacher-list">
                <li class="teacher">
-                  <a onclick="openInfo()">
-                     <div>
+                  <a class="image" onclick="openInfo()">
+                     <div class="image-content">
                         <img width="100" src="images/teacher0.jpg" alt="teacher
                                 image">
                      </div>
@@ -587,8 +592,8 @@
                   <p class="country">Ukraine</p>
                </li>
                <li class="teacher">
-                  <a onclick="openInfo()">
-                     <div>
+                  <a class="image" onclick="openInfo()">
+                     <div class="image-content">
                         <img width="100" src="images/teacher2.jpg" alt="teacher
                         image">
                      </div>
@@ -597,8 +602,8 @@
                   <p class="country">Ukraine</p>
                </li>
                <li class="teacher teacher-selected">
-                  <a onclick="openInfo()">
-                     <div>
+                  <a class="image" onclick="openInfo()">
+                     <div class="image-content">
                         <img width="100" src="images/teacher4.jpg" alt="teacher
                         image">
                      </div>
@@ -607,8 +612,8 @@
                   <p class="country">Ukraine</p>
                </li>
                <li class="teacher">
-                  <a onclick="openInfo()">
-                     <div>
+                  <a class="image" onclick="openInfo()">
+                     <div class="image-content">
                         <img width="100" src="images/teacher6.jpg" alt="teacher
                         image">
                      </div>
@@ -617,8 +622,8 @@
                   <p class="country">Ukraine</p>
                </li>
                <li class="teacher">
-                  <a onclick="openInfo()">
-                     <div>
+                  <a class="image" onclick="openInfo()">
+                     <div class="image-content">
                         <img width="100" src="images/teacher8.jpg" alt="teacher
                         image">
                      </div>
@@ -645,7 +650,7 @@
       </section>
    </main>
    <footer>
-      <nav id="nav-footer" aria-label="Bottom navigation">
+      <nav class="nav-footer" aria-label="Bottom navigation">
          <a href="#teachers">Teachers</a>
          <a href="#statistics">Statistics</a>
          <a href="#favorites">Favourites</a>
@@ -678,18 +683,22 @@
       };
       function openInfo() {
          document.getElementById("popup-info").style.display = "flex";
+         document.getElementsByTagName("body")[0].style.overflow = "hidden";
          blur();
       }
       function closeInfo() {
          document.getElementById("popup-info").style.display = "none";
+         document.getElementsByTagName("body")[0].style.overflow = "unset";
          unblur();
       }
       function openForm() {
          document.getElementById("popup-form").style.display = "flex";
+         document.getElementsByTagName("body")[0].style.overflow = "hidden";
          blur();
       }
       function closeForm() {
          document.getElementById("popup-form").style.display = "none";
+         document.getElementsByTagName("body")[0].style.overflow = "unset";
          unblur();
       }
    </script>

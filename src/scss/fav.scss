@@ -1,22 +1,24 @@
-#carousel {
+.carousel {
   display: flex;
   width: 88%;
   margin: auto;
 
-  ul {
+  .slider {
+    i {
+      color: #888;
+      font-size: 80px;
+      cursor: pointer;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+  .teacher-list {
     width: 88%;
     display: flex;
     justify-content: space-between;
     margin: auto;
-  }
-}
-
-.slider > i {
-  color: #888;
-  font-size: 80px;
-  cursor: pointer;
-
-  &:hover {
-    color: #000;
   }
 }
