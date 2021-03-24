@@ -25,7 +25,26 @@ footer {
   }
 }
 
-hr {
+header,
+#teachers,
+#statistics {
+  &::after {
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin: {
+      top: 3%;
+      bottom: 2%;
+    }
+
+    height: 1px;
+    background-color: #222;
+    content: "";
+  }
+}
+
+#about::before {
+  display: block;
   width: 50%;
   margin: auto;
   margin: {
@@ -33,7 +52,9 @@ hr {
     bottom: 2%;
   }
 
-  border-top: 1.5px solid #222;
+  height: 1px;
+  background-color: #222;
+  content: "";
 }
 
 h2 {
@@ -58,8 +79,8 @@ h2 {
   > .star {
     font-size: 120%;
     position: absolute;
-    right: 18%;
-    top: 3%;
+    right: 12%;
+    top: 0;
   }
 
   .far {

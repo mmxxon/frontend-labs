@@ -89,7 +89,8 @@
       }
 
       a,
-      p {
+      p,
+      select {
         font: 1em PT Sans, Segoe UI, Arial, sans-serif;
         margin: {
           top: 2%;
@@ -171,7 +172,7 @@
     margin-top: 1%;
     text-align: left;
     list-style: none;
-    color: #65a3be;
+    color: $sexy-blue;
     text-decoration: dashed underline;
     cursor: pointer;
 
