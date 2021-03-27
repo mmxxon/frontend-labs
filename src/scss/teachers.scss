@@ -2,7 +2,7 @@
   display: flex;
   margin-bottom: 2%;
 
-  label {
+  .filter__label {
     color: #999;
 
     &:hover {
@@ -10,7 +10,7 @@
     }
   }
 
-  input {
+  .filter__input {
     appearance: none;
     outline: 1px solid #999;
     width: 15px;
@@ -27,22 +27,19 @@
     }
   }
 
-  .photo-label {
+  .filter__photo-label {
     padding-right: 5%;
     margin-right: 3%;
     border-right: 2px dotted #999;
   }
 
-  .photo-filter {
+  .filter__photo {
     margin-left: 4%;
   }
 }
 
-.teacher-list {
+.teacher__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  margin: {
-    left: auto;
-    right: auto;
-  };
+  margin: unset auto;
 }

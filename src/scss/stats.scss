@@ -1,11 +1,12 @@
-.first-col {
-  text-align: left;
-  padding-left: 5%;
-}
 
 .stats-table {
   width: 100%;
   border-collapse: separate;
+
+  .first-col {
+    text-align: left;
+    padding-left: 5%;
+  }
 
   th {
     border-bottom: 1px #000 solid;
@@ -21,8 +22,7 @@
 
   td {
     width: 25%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding: 1% 0;
     text-align: center;
   }
 
@@ -31,14 +31,18 @@
   }
 }
 
-#page-nav {
+.page-nav {
   display: flex;
   justify-content: space-evenly;
   margin-top: 3%;
   width: 18%;
 
-  a {
+  .table-page {
     text-decoration: none;
-    color: #65a3be;
+    color: $sexy-blue;
+
+    &:hover {
+      color: $hover-blue;
+    }
   }
 }

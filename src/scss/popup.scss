@@ -2,6 +2,18 @@
   filter: blur(5px);
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
+.popup--hidden {
+  display: none;
+}
+
+.popup--shown {
+  display: flex;
+}
+
 .overlay {
   justify-content: center;
   align-items: center;
@@ -13,11 +25,10 @@
   right: 0;
   // background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   transition: 0.5s;
-  display: none;
   padding: auto;
 }
 
-h3 {
+.section__title {
   font: 2.8rem PT Sans, Segoe UI, Arial, sans-serif;
   width: 100%;
   margin: {
@@ -46,171 +57,20 @@ h3 {
     text-align: left;
   }
 
-  .close {
+  .popup__close {
+    background: none;
+    border: none;
+    padding: 0;
+    outline: inherit;
     cursor: pointer;
     position: absolute;
     transition: all 200ms;
-    font-size: 100%;
     font-weight: bold;
     text-decoration: none;
     color: #333;
 
     &:hover {
       color: #000;
-    }
-  }
-
-  .pic-wrap {
-    display: flex;
-    width: 100%;
-    margin-bottom: 5%;
-
-    .wrapper {
-      width: 42%;
-      height: 100%;
-
-      img {
-        width: 100%;
-        max-width: 300px;
-        float: left;
-      }
-    }
-
-    .name-wrap {
-      margin-left: 4%;
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      text-align: left;
-
-      a,
-      p,
-      select {
-        font: 1em PT Sans, Segoe UI, Arial, sans-serif;
-        height: 100%;
-        margin: {
-          top: 2%;
-          bottom: 2%;
-        }
-
-        text-decoration: none;
-      }
-    }
-  }
-}
-
-#popup-form > .popup {
-  margin: 40px auto;
-  padding: 2% 3%;
-  width: 400px;
-  max-height: 80%;
-  font: 1em PT Sans, Segoe UI, Arial, sans-serif;
-
-  .close {
-    top: 4%;
-    right: 6%;
-  }
-
-  .form-content {
-    display: flex;
-    flex-direction: column;
-    padding: 5% 7%;
-    text-align: left;
-
-    label,
-    input,
-    select {
-      margin-bottom: 3%;
-      height: 25px;
-    }
-
-    input {
-      -moz-appearance: textfield;
-
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-    }
-
-    .gender-outer-wrap,
-    .color-outer-wrap {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-
-      .gender-inner-wrap {
-        display: flex;
-        justify-content: space-between;
-        width: 50%;
-      }
-
-      .color-inner-wrap {
-        display: flex;
-        justify-content: space-between;
-        width: 35%;
-
-        .fa-palette {
-          color: $sexy-orange;
-        }
-      }
-    }
-
-    .form-submit {
-      margin-top: 5%;
-      padding: {
-        top: 4%;
-        bottom: 4%;
-      }
-
-      font: 2em PT Sans, Segoe UI, Arial, sans-serif;
-      font-weight: bold;
-      background-color: #fff;
-      color: $sexy-orange;
-      border: 2px solid $sexy-orange;
-
-      &:hover {
-        color: #fff;
-        background-color: $hover-orange;
-        border-color: $hover-orange;
-      }
-    }
-  }
-}
-
-#popup-info > .popup {
-  padding: 2% 5%;
-  width: 60%;
-  max-height: 80%;
-
-  .star {
-    font-size: 160%;
-  }
-
-  .close {
-    top: 8%;
-    right: 4%;
-  }
-
-  details {
-    iframe {
-      width: 100%;
-      height: 300px;
-    }
-
-    summary {
-      margin-top: 1%;
-      text-align: left;
-      list-style: none;
-      color: $sexy-blue;
-      text-decoration: dashed underline;
-      cursor: pointer;
-
-      &::-webkit-details-marker {
-        display: none;
-      }
     }
   }
 }

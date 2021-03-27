@@ -22,18 +22,12 @@
   }
 }
 
-.add-teacher {
+.button__add {
   font-size: 1.5em;
-  padding: {
-    left: 2%;
-    right: 2%;
-    top: 1%;
-    bottom: 1%;
-  };
+  padding: 1% 2%;
 }
 
-.add-teacher,
-.search-button {
+.button--animated {
   text-decoration: none;
   font-weight: bold;
   background-color: #fff;

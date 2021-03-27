@@ -1,14 +1,14 @@
-footer {
+.footer {
   display: flex;
   justify-content: space-between;
   padding-bottom: 3%;
 
-  .nav-footer {
+  .footer__menu {
     display: flex;
     justify-content: space-between;
     min-width: 500px;
 
-    a {
+    .footer__nav-link {
       text-decoration: none;
       color: $sexy-blue;
       font: 1.8em PT Sans, Segoe UI, Arial, sans-serif;

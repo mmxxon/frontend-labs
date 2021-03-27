@@ -1,19 +1,23 @@
 @media only screen and (max-width: 768px) {
-  .header-top,
-  .header-bottom,
-  .search-header,
-  nav {
+  body {
+    box-shadow: unset;
+  }
+
+  .header__form,
+  .header__menu,
+  .header__search,
+  .header__nav {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     text-align: left;
   }
 
-  .search-header > .search-input {
+  .search-header .search-input {
     margin-bottom: 5%;
   }
 
-  .teacher-list {
+  .teacher__list {
     overflow-x: scroll;
   }
 
@@ -21,14 +25,10 @@
     display: none;
   }
 
-  footer {
+  .footer {
     min-width: unset;
     height: 2%;
     align-items: left;
     justify-content: flex-end;
-  }
-
-  body {
-    box-shadow: unset;
   }
 }

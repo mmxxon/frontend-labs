@@ -1,24 +1,32 @@
+.teacher__list {
+  width: 88%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
 .carousel {
   display: flex;
   width: 88%;
   margin: auto;
+}
 
-  .slider {
-    i {
-      color: #888;
-      font-size: 80px;
-      cursor: pointer;
+.slider {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 
-      &:hover {
-        color: #000;
-      }
+  .slider__icon {
+    color: #888;
+    font-size: 80px;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
     }
-  }
-
-  .teacher-list {
-    width: 88%;
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
   }
 }

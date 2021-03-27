@@ -14,20 +14,11 @@ body {
   box-shadow: 8px 0 15px -4px #999, -8px 0 15px -4px #999;
 }
 
-header,
-#teachers,
-#statistics,
-#about,
-footer {
-  margin: {
-    left: 8.3%;
-    right: 8.3%;
-  }
+.section--margin-side {
+  margin: auto 8.3%;
 }
 
-header,
-#teachers,
-#statistics {
+.section--border_after {
   &::after {
     display: block;
     margin: auto;
@@ -43,7 +34,7 @@ header,
   }
 }
 
-#about::before {
+.section--border_before::before {
   display: block;
   width: 50%;
   margin: auto;
@@ -57,37 +48,17 @@ header,
   content: '';
 }
 
-h1 {
-  color: #fff;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 250%;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  text-shadow: -0.04em -0.016em $sexy-orange, 0.04em 0.016em #000;
-  margin: 0;
-  transition: 0.3s;
-  animation: logo-back 0.7s linear;
-
-  &:hover {
-    animation: logo 0.7s ease infinite alternate;
-  }
-}
-
-h2 {
+.section__title {
   font: 2.3em PT Sans, Segoe UI, Arial, sans-serif;
   margin-bottom: 4%;
 }
 
-.star {
+.fa-star {
   color: #ecec02;
   cursor: pointer;
 }
 
 // Teacher item
-.teacher-selected > div {
-  border-color: $hover-orange;
-}
-
 .teacher {
   display: flex;
   flex-direction: column;
@@ -96,8 +67,8 @@ h2 {
   position: relative;
   z-index: 1;
 
-  > .star {
-    font-size: 120%;
+  .icon-star {
+    font-size: 1.2rem;
     position: absolute;
     right: 15%;
     top: 2%;
@@ -113,12 +84,12 @@ h2 {
     }
   }
 
-  .name {
+  .teacher__name {
     width: 60%;
     font: 1.5em PT Sans, Segoe UI, Arial, sans-serif;
   }
 
-  .country {
+  .teacher__country {
     margin: {
       top: 3%;
       bottom: 20%;
@@ -127,7 +98,7 @@ h2 {
     font: 0.7em PT Sans, Segoe UI, Arial, sans-serif;
   }
 
-  .image {
+  .teacher__link {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -135,14 +106,8 @@ h2 {
     color: #222;
     cursor: pointer;
 
-    .image-content {
-      img {
-        width: 105%;
-        height: 105%;
-        border-radius: 50%;
-      }
-
-      font: 1.3em PT Sans, Segoe UI, Arial, sans-serif;
+    .teacher__item {
+      font: 1.3rem PT Sans, Segoe UI, Arial, sans-serif;
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -151,27 +116,42 @@ h2 {
       width: 110px;
       height: 110px;
       border-radius: 50%;
-      border: 3px $border-orange solid;
+      border: 4px $border-orange solid;
       overflow: hidden;
 
-      img,
-      p {
+      .teacher__img {
+        width: 105%;
+        height: 105%;
+        border-radius: 50%;
+      }
+
+      .teacher__img,
+      .teacher__initials {
         transition: 0.6s ease;
         transform: scale(1);
         user-select: none;
       }
 
       &:hover {
-        img,
-        p {
+        .teacher__img,
+        .teacher__initials {
           transform: scale(1.1);
+          color: $hover-orange;
         }
 
         border-color: $hover-orange;
       }
     }
   }
+
+  &.teacher--selected .teacher__link .teacher__item {
+    .teacher__initials {
+      color: $hover-orange;
+    }
+
+    border-color: $hover-orange;
+  }
 }
 
 // I really like to split files, sorry
-@import 'header', 'teachers', 'stats', 'fav', 'about', 'footer', 'popup', 'media';
+@import 'header', 'teachers', 'stats', 'fav', 'about', 'footer', 'popup', 'popup-info', 'popup-form', 'media';

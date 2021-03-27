@@ -1,0 +1,79 @@
+.popup-form__window {
+  margin: 40px auto;
+  padding: 2% 3%;
+  width: 400px;
+  max-height: 80%;
+  font: 1em PT Sans, Segoe UI, Arial, sans-serif;
+
+  .popup__close {
+    top: 4%;
+    right: 6%;
+  }
+
+  .popup-form__content {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 7%;
+    text-align: left;
+
+    .popup-form__label,
+    .popup-form__input,
+    .popup-form__select {
+      margin-bottom: 3%;
+      height: 25px;
+    }
+
+    .popup-form__input {
+      -moz-appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    .popup-form__gender .popup-form__gender-pick {
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+    }
+
+    .popup-form__color .popup-form__color-pick {
+      display: flex;
+      justify-content: space-between;
+      width: 35%;
+
+      .icon-palette {
+        color: $sexy-orange;
+      }
+    }
+
+    .popup-form__gender,
+    .popup-form__color {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .popup-form__submit {
+      margin-top: 5%;
+      padding: {
+        top: 4%;
+        bottom: 4%;
+      }
+
+      font: 2em PT Sans, Segoe UI, Arial, sans-serif;
+      font-weight: bold;
+      background-color: #fff;
+      color: $sexy-orange;
+      border: 2px solid $sexy-orange;
+
+      &:hover {
+        color: #fff;
+        background-color: $hover-orange;
+        border-color: $hover-orange;
+      }
+    }
+  }
+}
