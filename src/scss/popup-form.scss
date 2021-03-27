@@ -36,13 +36,13 @@
     .popup-form__gender .popup-form__gender-pick {
       display: flex;
       justify-content: space-between;
-      width: 50%;
+      flex-basis: 50%;
     }
 
     .popup-form__color .popup-form__color-pick {
       display: flex;
       justify-content: space-between;
-      width: 35%;
+      flex-basis: 35%;
 
       .icon-palette {
         color: $sexy-orange;

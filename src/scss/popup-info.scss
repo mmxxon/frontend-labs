@@ -11,7 +11,7 @@
 
   .popup-info__card {
     display: flex;
-    width: 100%;
+    flex-basis: 100%;
     margin-bottom: 4%;
 
     .popup-info__card-img {
