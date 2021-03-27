@@ -11,7 +11,7 @@
     .footer__nav-link {
       text-decoration: none;
       color: $sexy-blue;
-      font: 1.8em PT Sans, Segoe UI, Arial, sans-serif;
+      font: 1.8em $fonts;
 
       &:hover {
         color: $hover-blue;

@@ -3,7 +3,7 @@
   padding: 2% 3%;
   width: 400px;
   max-height: 80%;
-  font: 1em PT Sans, Segoe UI, Arial, sans-serif;
+  font: 1em $fonts;
 
   .popup__close {
     top: 4%;
@@ -63,7 +63,7 @@
         bottom: 4%;
       }
 
-      font: 2em PT Sans, Segoe UI, Arial, sans-serif;
+      font: 2em $fonts;
       font-weight: bold;
       background-color: #fff;
       color: $sexy-orange;

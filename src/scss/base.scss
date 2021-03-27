@@ -4,6 +4,7 @@ $sexy-blue: #65a3be;
 $border-orange: #f99589;
 $hover-orange: #cc4836;
 $hover-blue: #548eaa;
+$fonts: 'PT Sans', 'Segoe UI', 'Arial', sans-serif;
 
 body {
   margin: {
@@ -49,7 +50,7 @@ body {
 }
 
 .section__title {
-  font: 2.3em PT Sans, Segoe UI, Arial, sans-serif;
+  font: 2.3em $fonts;
   margin-bottom: 4%;
 }
 
@@ -86,7 +87,7 @@ body {
 
   .teacher__name {
     width: 60%;
-    font: 1.5em PT Sans, Segoe UI, Arial, sans-serif;
+    font: 1.5em $fonts;
   }
 
   .teacher__country {
@@ -95,7 +96,7 @@ body {
       bottom: 20%;
     }
 
-    font: 0.7em PT Sans, Segoe UI, Arial, sans-serif;
+    font: 0.7em $fonts;
   }
 
   .teacher__link {
@@ -107,7 +108,7 @@ body {
     cursor: pointer;
 
     .teacher__item {
-      font: 1.3rem PT Sans, Segoe UI, Arial, sans-serif;
+      font: 1.3rem $fonts;
       font-weight: bold;
       display: flex;
       align-items: center;

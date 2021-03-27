@@ -55,7 +55,7 @@
     .header__nav-link {
       text-decoration: none;
       color: $sexy-orange;
-      font: 1.4em PT Sans, Segoe UI, Arial, sans-serif;
+      font: 1.4em $fonts;
 
       &:hover {
         color: $hover-orange;

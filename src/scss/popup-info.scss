@@ -30,7 +30,7 @@
         justify-content: space-between;
 
         .popup-info__fullname {
-          font: 2em PT Sans, Segoe UI, Arial, sans-serif;
+          font: 2em $fonts;
         }
 
         .icon-star {
@@ -44,7 +44,7 @@
         margin-top: 15%;
 
         .popup-info__field {
-          font: 1.2em PT Sans, Segoe UI, Arial, sans-serif;
+          font: 1.2em $fonts;
           height: 100%;
           margin: {
             bottom: 2%;
