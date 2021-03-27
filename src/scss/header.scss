@@ -1,0 +1,65 @@
+@import 'animations';
+
+.header {
+  .header__form,
+  .header__menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .header__form {
+    .header__logo-link {
+      text-decoration: none;
+      color: #fff;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-shadow: -0.04em -0.016em $sexy-orange, 0.04em 0.016em #000;
+      margin: 0;
+      transition: 0.3s;
+      animation: logo-back 0.7s linear;
+
+      &:hover {
+        animation: logo 0.7s ease infinite alternate;
+      }
+    }
+
+    padding-top: 3%;
+    align-items: center;
+    padding-bottom: 5%;
+
+    .header__search {
+      display: flex;
+      align-items: stretch;
+
+      .header__input {
+        margin-right: 20px;
+        border-radius: 3px;
+        border: 2px #767676 solid;
+        padding-left: 15px;
+      }
+
+      .header__button {
+        padding: 10px 20px;
+      }
+    }
+  }
+
+  .header__menu .header__nav {
+    display: flex;
+    justify-content: space-between;
+    min-width: 400px;
+
+    .header__nav-link {
+      text-decoration: none;
+      color: $sexy-orange;
+      font: 1.4em $fonts;
+
+      &:hover {
+        color: $hover-orange;
+      }
+    }
+  }
+}

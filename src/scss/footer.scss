@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3%;
+
+  .footer__menu {
+    display: flex;
+    justify-content: space-between;
+    min-width: 500px;
+
+    .footer__nav-link {
+      text-decoration: none;
+      color: $sexy-blue;
+      font: 1.8em $fonts;
+
+      &:hover {
+        color: $hover-blue;
+      }
+    }
+  }
+}

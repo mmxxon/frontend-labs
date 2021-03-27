@@ -1,0 +1,48 @@
+
+.stats-table {
+  width: 100%;
+  border-collapse: separate;
+
+  .first-col {
+    text-align: left;
+    padding-left: 5%;
+  }
+
+  th {
+    border-bottom: 1px #000 solid;
+    padding: 16px 15px;
+    text-align: center;
+
+    &:hover {
+      padding-bottom: 12px;
+      border-bottom: 5px #000 solid;
+      background-color: #fafafa;
+    }
+  }
+
+  td {
+    width: 25%;
+    padding: 1% 0;
+    text-align: center;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f5f9;
+  }
+}
+
+.page-nav {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3%;
+  flex-basis: 18%;
+
+  .table-page {
+    text-decoration: none;
+    color: $sexy-blue;
+
+    &:hover {
+      color: $hover-blue;
+    }
+  }
+}
