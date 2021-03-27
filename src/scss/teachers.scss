@@ -38,6 +38,11 @@
   }
 }
 
+.filter__title {
+  display: contents;
+}
+
+
 .teacher__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
