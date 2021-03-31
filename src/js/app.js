@@ -1,5 +1,6 @@
-// import testModules from './test-module';
-import '../css/app.css';
+const testModules = require('./test-module');
+require('../css/app.css');
+require('../scss/base.scss');
 
 // eslint-disable-next-line no-unused-vars
 function convert(userList) {
