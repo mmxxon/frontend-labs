@@ -51,8 +51,12 @@ function merge(userList, additionalList) {
     course: '',
     bg_color: '#FFFFFF',
     note: '',
-  }))
-  return UserList.concat(AdditionalList.filter((user) => !UserList.find((user2) => user.full_name === user2.full_name)));
+  }));
+  return UserList.concat(
+    AdditionalList.filter(
+      (user) => !UserList.find((user2) => user.full_name === user2.full_name)
+    )
+  );
 }
 
 const isString = (obj) => toString.call(obj) === '[object String]';
@@ -64,23 +68,30 @@ const isValidNumber = (phone, country) => {
   const number = phone.replace(/\D/g, '');
   return val && number.startsWith(val.code) && number.Length === val.length;
 };
-const mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+// eslint-disable-next-line max-len
+const mailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 function validator(user) {
-  let fields = [];
-  Object.keys(user).forEach(key => {
-    if (['full_name', 'gender', 'note', 'state', 'city', 'country'].includes(key)) {
-      fields.push((isUpperCase(user[key])) ? true : false);
+  const fields = [];
+  Object.keys(user).forEach((key) => {
+    if (
+      ['full_name', 'gender', 'note', 'state', 'city', 'country'].includes(key)
+    ) {
+      fields.push(!!isUpperCase(user[key]));
     } else if (key === 'age') {
-      fields.push(isNumber(user[key]) ? true : false)
+      fields.push(!!isNumber(user[key]));
     } else if (key === 'phone') {
-      fields.push(!user.hasOwnProperty("country") ? false : (isValidNumber(user[key], user.country)) ? true : false);
+      fields.push(
+        !Object.prototype.hasOwnProperty.call(user, 'country')
+          ? false
+          : !!isValidNumber(user[key], user.country)
+      );
     } else if (key === 'email') {
-      fields.push(user[key].match(mailRegex) ? true : false);
+      fields.push(!!user[key].match(mailRegex));
     } else {
       fields.push(true);
     }
-  })
+  });
   return fields;
 }
 
@@ -92,13 +103,9 @@ function filtrator(userList, field, arg) {
 function sort(userList, field, order) {
   let userList2;
   if (isNumber(userList[0][field])) {
-    userList2 = userList.sort((a, b) => {
-      return order * (a[field] - b[field]);
-    })
+    userList2 = userList.sort((a, b) => order * (a[field] - b[field]));
   } else {
-    userList2 = userList.sort((a, b) => {
-      return a[field] > b[field] ? 1 : -1;
-    });
+    userList2 = userList.sort((a, b) => (a[field] > b[field] ? 1 : -1));
     if (order < 0) userList2.reverse();
   }
   return userList2;
@@ -113,7 +120,7 @@ function percent(userList, func) {
   if (!(userList && func && isFunction(func))) {
     return null;
   }
-  const usersFiltered = userList.filter((user) => func(user))
+  const usersFiltered = userList.filter((user) => func(user));
   return 100 * (usersFiltered ? usersFiltered.length / userList.length : 0);
 }
 
@@ -123,5 +130,5 @@ module.exports = {
   filtrator,
   sort,
   search,
-  percent
-}
+  percent,
+};

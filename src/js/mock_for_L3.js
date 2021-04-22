@@ -1874,4 +1874,4 @@ const additionalUsers = [
 module.exports = {
   randomUserMock,
   additionalUsers
-}
+};
