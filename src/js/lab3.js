@@ -66,23 +66,24 @@ const isValidNumber = (phone, country) => {
 const mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 function validator(user) {
-  let isValid = [null, true];
+  let fields = [];
   Object.keys(user).forEach(key => {
     if (['full_name', 'gender', 'note', 'state', 'city', 'country'].includes(key)) {
-      if (!isUpperCase(user[key])) isValid = [key, false];
+      fields.push((isUpperCase(user[key])) ? true : false);
     } else if (key === 'age') {
-      if (!isNumber(user[key])) isValid = [key, false];
+      fields.push(isNumber(user[key]) ? true : false)
     } else if (key === 'phone') {
-      if (!user.hasOwnProperty("country")) isvalid = ['country', false];
-      else if (!isValidNumber(user[key], user.country)) isValid = [key, false];
+      fields.push(!user.hasOwnProperty("country") ? false : (isValidNumber(user[key], user.country)) ? true : false);
     } else if (key === 'email') {
-      if (!user[key].match(mailRegex)) isValid = [key, false];
+      fields.push(user[key].match(mailRegex) ? true : false);
+    } else {
+      fields.push(true);
     }
   })
-  return isValid;
+  return fields;
 }
 
-function filtrator(userList, field, arg) {
+function filtrator(users, field, arg) {
   if (!(users && field && arg && users[0][field])) return [];
   return users.filter((user) => user[field] === arg);
 }
@@ -100,9 +101,9 @@ function sort(userlist, field, order) {
   return userList2;
 }
 
-function search(userList, field, arg) {
-  if (!(userList && field && arg && userList[0][field])) return [];
-  return userList.find((user) => user[field] === arg);
+function search(users, field, arg) {
+  if (!(users && field && arg && users[0][field])) return [];
+  return users.find((user) => user[field] === arg);
 }
 
 function percent(userList, func) {
