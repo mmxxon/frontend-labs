@@ -57,6 +57,7 @@ function merge(userList, additionalList) {
 
 const isString = (obj) => toString.call(obj) === '[object String]';
 const isNumber = (obj) => toString.call(obj) === '[object Number]';
+const isFunction = (obj) => toString.call(obj) === '[object Function]';
 const isUpperCase = (word) => isString(word) && word.charAt(0).toUpperCase() === word.charAt(0);
 const isValidNumber = (phone, country) => {
   const val = codes.find((c) => c.eng === country);
@@ -83,31 +84,33 @@ function validator(user) {
   return fields;
 }
 
-function filtrator(users, field, arg) {
-  if (!(users && field && arg && users[0][field])) return [];
-  return users.filter((user) => user[field] === arg);
+function filtrator(userList, field, arg) {
+  if (!(userList && field && arg && userList[0][field])) return [];
+  return userList.filter((user) => user[field] === arg);
 }
 
-function sort(userlist, field, order) {
+function sort(userList, field, order) {
   let userList2;
   if (isNumber(userList[0][field])) {
-    userList2 = userlist.sort((a, b) => {
-      return order * (a - b);
+    userList2 = userList.sort((a, b) => {
+      return order * (a[field] - b[field]);
     })
   } else {
-    userList2 = userlist.sort();
+    userList2 = userList.sort((a, b) => {
+      return a[field] > b[field] ? 1 : -1;
+    });
     if (order < 0) userList2.reverse();
   }
   return userList2;
 }
 
-function search(users, field, arg) {
-  if (!(users && field && arg && users[0][field])) return [];
-  return users.find((user) => user[field] === arg);
+function search(userList, field, arg) {
+  if (!(userList && field && arg && userList[0][field])) return {};
+  return userList.find((user) => user[field] === arg);
 }
 
 function percent(userList, func) {
-  if (!userList || !func) {
+  if (!(userList && func && isFunction(func))) {
     return null;
   }
   const usersFiltered = userList.filter((user) => func(user))
