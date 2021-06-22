@@ -1,0 +1,647 @@
+body {
+  color: black;
+  font-family: PT Sans, Segoe UI, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 94%;
+  margin: auto;
+  box-shadow: 10px 0 5px -2px #dfdfdf, -10px 0 5px -2px #dfdfdf;
+}
+body a {
+  text-decoration: none;
+  color: #65b7e0;
+}
+body a.name-link {
+  color: black;
+}
+body header, body main, body footer {
+  width: 83%;
+  margin: auto;
+}
+body main > section::before {
+  height: 1px;
+  width: 55%;
+  background-color: black;
+  content: "";
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navbar {
+  height: 50px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+@media only screen and (max-width: 768px) {
+  .navbar nav {
+    flex-wrap: wrap;
+  }
+}
+.navbar nav a {
+  font-size: 17px;
+  margin-right: 45px;
+  font-weight: 550;
+}
+
+.nav-header a {
+  color: #f75c49;
+}
+.nav-header a:hover {
+  color: #cc4836;
+}
+.nav-footer a {
+  color: #65b7e0;
+}
+.nav-footer a:hover {
+  color: #1c8fad;
+}
+
+footer {
+  text-align: left;
+}
+footer p {
+  margin-bottom: 20px;
+}
+footer .navbar {
+  height: 50px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.add-button {
+  border: 1px #f99589 solid;
+  color: #f75c49;
+  padding: 3px;
+  width: 170px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  .add-button {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
+.add-button:hover {
+  color: white;
+  background-color: #f75c49;
+}
+
+h1 {
+  font-family: Playfair Display Black, Bodoni MT, Georgia, Cambria, serif;
+  text-align: left;
+  font-size: 35px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: white;
+  text-shadow: -1px -2px #f75c49, 1px 2px Black;
+}
+h1:hover {
+  color: #efefef;
+}
+
+h2.main-page-header {
+  text-align: center;
+  font-size: 36px;
+  width: 55%;
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+hr {
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  width: 55%;
+  height: 1px;
+  color: black;
+  border-color: black;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 768px) {
+  .header-top {
+    flex-wrap: wrap;
+  }
+}
+
+.searchbar input[type=text] {
+  margin-right: 20px;
+  width: 190px;
+  height: 40px;
+  padding-left: 8px;
+}
+@media only screen and (max-width: 768px) {
+  .searchbar input[type=text] {
+    width: 190px;
+    height: 40px;
+    margin-right: 0px;
+    padding-left: 0px;
+  }
+}
+.searchbar input[type=submit] {
+  color: #f75c49;
+  border: 1px #f75c49 solid;
+  background-color: white;
+  margin-top: 30px;
+  width: 90px;
+  height: 40px;
+  font: bold 11px PT Sans, Segoe UI, Arial, sans-serif;
+}
+@media only screen and (max-width: 768px) {
+  .searchbar input[type=submit] {
+    margin: 10px;
+  }
+}
+.searchbar input[type=submit]:hover {
+  color: white;
+  background-color: #f75c49;
+}
+
+.teach-elem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 45px;
+  position: relative;
+}
+.teach-elem .star {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 20%;
+}
+.teach-elem .comp-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 115px;
+  height: 115px;
+  border: 4px #f99589 solid;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #f75c49;
+  overflow: hidden;
+}
+@media only screen and (max-width: 768px) {
+  .teach-elem .comp-card {
+    width: 80px;
+    height: 80px;
+  }
+}
+.teach-elem .comp-card:hover {
+  border-color: #cc4836;
+  color: #cc4836;
+}
+.teach-elem .comp-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+.teach-elem .comp-card img:hover {
+  transform: scale(1.2);
+}
+.teach-elem .comp-card p {
+  font-size: 28px;
+  margin: auto;
+  color: inherit;
+}
+.teach-elem p.top-name-big {
+  font-size: 28px;
+  margin-top: 20px;
+  margin-bottom: 21px;
+  word-spacing: 10000%;
+}
+@media only screen and (max-width: 768px) {
+  .teach-elem p.top-name-big {
+    font-size: 100%;
+  }
+}
+.teach-elem p {
+  font-size: 10px;
+}
+
+.filter {
+  text-align: left;
+  font-size: 15px;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 768px) {
+  .filter {
+    font-size: 10px;
+  }
+}
+.filter span {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.filter div {
+  display: flex;
+}
+.filter div:not(:last-child) {
+  border-right: 2px #999999 dotted;
+  padding-right: 45px;
+}
+.filter input, .filter label {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #999999;
+}
+.filter input:hover, .filter label:hover {
+  color: black;
+}
+.filter input[type=checkbox] {
+  margin-left: 25px;
+  margin-right: 7px;
+  border-radius: 50%;
+}
+
+ul.top {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.tb-stat {
+  width: 100%;
+  border-collapse: separate;
+}
+.tb-stat th, .tb-stat td {
+  text-align: left;
+}
+.tb-stat th + th, .tb-stat td + td {
+  text-align: center;
+}
+.tb-stat tbody > tr:first-child {
+  background-color: white;
+  font-size: 16px;
+}
+.tb-stat tbody > tr:nth-child(even) {
+  background-color: #f9f5f9;
+}
+.tb-stat th {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px black solid;
+}
+.tb-stat th:first-child {
+  padding-left: 20px;
+}
+.tb-stat th:hover {
+  background-color: #fafafa;
+  border-bottom: 5px black solid;
+  padding-bottom: 13px;
+}
+.tb-stat td {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+.tb-stat td:first-child {
+  padding-left: 20px;
+}
+
+.table-stat-pages {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+.table-stat-pages a {
+  padding-left: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.table-stat-pages a:first-child {
+  padding-left: 20px;
+}
+.table-stat-pages a:active, .table-stat-pages a.selected-page {
+  color: black;
+}
+.table-stat-pages a:active:hover, .table-stat-pages a.selected-page:hover {
+  color: black;
+}
+.table-stat-pages a:hover {
+  color: #1c8fad;
+}
+.table-stat-pages span {
+  padding-left: 10px;
+  user-select: none;
+}
+
+.fav-section {
+  width: 100%;
+}
+.fav-section .fav-with-arrows {
+  display: flex;
+  flex-direction: row;
+  width: 120.25%;
+}
+@media only screen and (max-width: 768px) {
+  .fav-section .fav-with-arrows {
+    width: 100%;
+  }
+}
+.fav-section .fav-with-arrows a {
+  margin: auto;
+}
+@media only screen and (max-width: 768px) {
+  .fav-section .fav-with-arrows a {
+    display: none;
+  }
+}
+.fav-section .fav-with-arrows ul {
+  width: 83.1%;
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 768px) {
+  .fav-section .fav-with-arrows ul {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .fav-section .fav-with-arrows ul .teach-elem .comp-card {
+    display: none;
+  }
+}
+.fav-section .fav-with-arrows .fav-selected .comp-card {
+  border: 4px #cc4836 solid;
+}
+.fav-section .fav-with-arrows .arrow {
+  color: #999999;
+  display: inline;
+  font-size: 65px;
+}
+.fav-section .fav-with-arrows .arrow:hover {
+  color: #303030;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  position: relative;
+  left: 50%;
+  top: 3%;
+  transform: translate(-50%, 5%);
+  z-index: 2;
+  border: 1px solid #8d8d8d;
+  background-color: white;
+  box-shadow: 2px 3px 5px #bababa, -1px -2px 2px #bababa;
+  max-width: 950px;
+}
+@media only screen and (max-width: 768px) {
+  .popup {
+    position: unset;
+    transform: unset;
+    max-width: unset;
+  }
+}
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.popup-header {
+  position: relative;
+  width: 100%;
+}
+.popup-header h2 {
+  width: 100%;
+  border: 0;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  text-align: center;
+  font-size: 225%;
+}
+.popup-header a {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 15px;
+  margin-top: 20px;
+  font-size: 131.25%;
+  color: black;
+  cursor: pointer;
+}
+
+.teacher-info-card {
+  width: 65.972vw;
+}
+@media only screen and (max-width: 768px) {
+  .teacher-info-card {
+    width: 100%;
+    height: 100%;
+  }
+}
+.teacher-info-card .card {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "pic info" "footer footer";
+  grid-template-columns: 50% 50%;
+  padding: 0px 70px 0px 70px;
+}
+.teacher-info-card .card .pic {
+  grid-area: pic;
+  width: 100%;
+}
+.teacher-info-card .card .name-star {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.teacher-info-card .card .name-star .star {
+  width: 30px;
+  height: 30px;
+}
+.teacher-info-card .card .personal-info {
+  margin-left: 10px;
+  grid-area: info;
+  align-items: flex-start;
+  font-size: 0.85rem;
+}
+@media only screen and (max-width: 768px) {
+  .teacher-info-card .card .personal-info {
+    margin-left: 10%;
+  }
+}
+.teacher-info-card .card .personal-info p {
+  margin-bottom: 22px;
+}
+.teacher-info-card .card .personal-info a {
+  color: #65b7e0;
+}
+.teacher-info-card .card .personal-info a:hover {
+  color: #1c8fad;
+}
+.teacher-info-card .card .other-info {
+  grid-area: footer;
+  align-items: baseline;
+  text-align: initial;
+  font-size: 0.75rem;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .teacher-info-card .card .other-info {
+    font-size: 80%;
+  }
+}
+.teacher-info-card .card .other-info p {
+  margin-bottom: 15px;
+}
+.teacher-info-card .card .other-info a {
+  color: #65b7e0;
+  padding: 2px;
+  border-bottom: 1px #65b7e0 dashed;
+  cursor: pointer;
+}
+.teacher-info-card .card .other-info a:hover {
+  color: #1c8fad;
+  border-bottom-color: #1c8fad;
+}
+
+.add-card {
+  width: 400px;
+  height: 710px;
+}
+@media only screen and (max-width: 768px) {
+  .add-card {
+    width: 100%;
+    height: 100%;
+  }
+}
+.add-card form {
+  width: 62%;
+  height: 79%;
+}
+@media only screen and (max-width: 768px) {
+  .add-card form {
+    width: unset;
+    height: unset;
+  }
+}
+.add-card form > label:not(.gender), .add-card form > input, .add-card form > select {
+  width: 100%;
+  display: inline-block;
+}
+.add-card form label {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+.add-card form input, .add-card form select {
+  height: 32px;
+}
+.add-card form .choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.add-card form .choice legend {
+  float: left;
+}
+.add-card form .color {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  height: 24px;
+}
+.add-card form .color legend {
+  float: left;
+  width: 60%;
+}
+.add-card form .color div {
+  width: 40%;
+  display: flex;
+  justify-content: right;
+}
+.add-card form .color div input {
+  width: 3vw;
+  height: 2vw;
+}
+.add-card form .color div img {
+  width: 20%;
+  align-self: end;
+}
+.add-card form .gender-container {
+  display: flex;
+  align-items: center;
+}
+.add-card form .gender-container label {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+.add-card form input[type=submit] {
+  width: 100%;
+  height: 10.7%;
+  background-color: white;
+  margin-top: 7.7%;
+  margin-bottom: 7.7%;
+  font-weight: bold;
+  font-size: 24px;
+  color: #f75c49;
+  border: 1px #f99589 solid;
+  cursor: pointer;
+}
+.add-card form input[type=submit]:hover {
+  color: white;
+  background-color: #f75c49;
+}
+
+/*# sourceMappingURL=style.css.map */
