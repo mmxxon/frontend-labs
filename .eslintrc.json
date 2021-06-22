@@ -3,12 +3,18 @@
     "browser": true,
     "commonjs": true,
     "es2021": true
+    /* "jest/globals": true */
   },
   "extends": ["airbnb-base"],
   "parserOptions": {
     "ecmaVersion": 12
   },
   "rules": {
-    "quotes": "off"
+    "quotes": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "comma-dangle": "off",
+    "max-len": ["error", { "code": 120 }],
+    "object-curly-spacing": "off"
   }
 }
