@@ -4,10 +4,7 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function getAge(bDay) {
-  return parseInt((new Date(Date.now() - Date.parse(bDay))).getUTCFullYear() - 1970, 10);
-}
-export function toFormatList(userList, additionalList) {
+export function toFormatList(userList) {
   const formattedUserList = userList.map((person) => ({
     id: person.id.value || `${person.name.first}${person.name.last}`,
     favorite: false,
@@ -31,30 +28,7 @@ export function toFormatList(userList, additionalList) {
     note: null,
   }));
 
-  const additionalFormattedList = additionalList.map((person) => ({
-    id: person.id || '',
-    favorite: person.favorite || false,
-    course: person.course || '',
-    bg_color: person.bg_color || '#FF0000',
-    gender: capitalizeFirstLetter(person.gender) || null,
-    title: person.title || null,
-    full_name: person.full_name || null,
-    city: person.city || null,
-    state: person.state || null,
-    country: person.country || null,
-    postcode: person.postcode || null,
-    coordinates: person.coordinates || null,
-    timezone: person.timezone || null,
-    email: person.email || null,
-    b_date: person.b_day || null,
-    age: getAge(person.b_day) || null,
-    phone: person.phone || null,
-    picture_large: person.large || null,
-    picture_thumbnail: person.thumbnail || null,
-    note: person.note || null,
-  })).filter((person) => !formattedUserList.find((p) => p.full_name === person.full_name));
-
-  return formattedUserList.concat(additionalFormattedList);
+  return formattedUserList;
 }
 
 export function upCaseCheck(str) {
