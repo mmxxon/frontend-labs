@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const phoneCodes = require('./json/codes.json');
 
 function capitalizeFirstLetter(string) {
@@ -54,7 +56,7 @@ export function validatePerson(person) {
 
   const phone = person.phone.replace(/[.,/\s#!$%^&*;:{}=\-_`~()]/g, '');
   const { country } = person;
-  const codeInfo = phoneCodes.country.find((code) => code.eng === country);
+  const codeInfo = _.find(phoneCodes.country, (code) => code.eng === country);
   if (!codeInfo) {
     return false;
   }
@@ -83,15 +85,15 @@ export function strComp(str1, str2) {
   return 0;
 }
 
-export function sortBy(userList, param, ord) {
-  if (!(userList && param && ord)) {
+export function sortBy(userList, param) {
+  if (!(userList && param)) {
     return [];
   }
   if (typeof userList[0][param] === 'number') {
-    return userList.sort((per1, per2) => ord * (per2[param] - per1[param]));
+    return _.sortBy(userList, (per1, per2) => (per2[param] - per1[param]));
   }
   if (typeof userList[0][param] === 'string' || userList[0][param] instanceof String) {
-    return userList.sort((per1, per2) => ord * strComp(per2[param], per1[param]));
+    return _.sortBy(userList, (per1, per2) => strComp(per2[param], per1[param]));
   }
   return userList.sort();
 }
@@ -101,9 +103,9 @@ export function findOne(userList, param, val) {
     return null;
   }
   if (/^\d+$/.test(val)) {
-    return userList.find((per) => per[param] === parseInt(val, 10));
+    return _.find(userList, (per) => per[param] === parseInt(val, 10));
   }
-  return userList.find((per) => per[param] === val);
+  return _.find(userList, (per) => per[param] === val);
 }
 
 export function getPercentage(userList, pred) {

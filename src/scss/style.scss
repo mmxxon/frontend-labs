@@ -731,7 +731,12 @@ ul.top {
                 margin-bottom: 15px;
             }
 
-            a {
+            #mapid {
+                height: 140px;
+                width: 500px;
+            }
+
+            summary {
                 color: $link-color;
 
                 padding: 2px;

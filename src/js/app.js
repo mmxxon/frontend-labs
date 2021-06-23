@@ -1,12 +1,50 @@
+import Chart from 'chart.js';
+import dayjs from 'dayjs';
+import _ from 'lodash';
+
+require('babel-core/register');
+require('babel-polyfill');
 require('../scss/style.scss');
 require('../css/app.css');
 
 const {
-  toFormatList, sortBy, findOne, validatePerson,
+  toFormatList, findOne, validatePerson,
 } = require('./data_helpers');
 
 let teachCount = 10;
 let reqParams = `results=${teachCount}`;
+/* eslint no-undef: 1 */
+let map = L.map('mapid').setView([13, 37], 13);
+
+let marker = L.marker([15, 30]).addTo(map);
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const teacherChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ['Men', 'Women'],
+    datasets: [{
+      label: '# of Votes',
+      data: [10, 10],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+      ],
+      borderWidth: 1,
+    }],
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  },
+});
 
 function createTopTeacherEntry(name, isFav, country, imURL, id, addStar = true) {
   let filling = '';
@@ -37,12 +75,27 @@ function createTopTeacherEntry(name, isFav, country, imURL, id, addStar = true) 
 }
 
 function fillPopup(teach) {
+  marker.remove();
   if (!teach) {
     return;
   }
   const email = teach.email ? teach.email : '';
   const phone = teach.phone ? teach.phone : '';
   const popupTeach = document.getElementById('popup-teach-info');
+
+  const bDate = dayjs(teach.b_date).year(dayjs().year());
+  let tillBday = bDate.diff(dayjs(), 'day');
+  let bDayGreet = '';
+
+  if (tillBday < 0) {
+    tillBday = bDate.year(bDate.year() + 1).diff(dayjs(), 'day');
+  }
+
+  if (tillBday === 0) {
+    bDayGreet = `Happy birthday, ${teach.full_name}!`;
+  } else {
+    bDayGreet = `Birthday in ${tillBday} days`;
+  }
   popupTeach.getElementsByClassName('card')[0].dataset.bgcolor = teach.bg_color;
   popupTeach.getElementsByTagName('img')[0].src = teach.picture_large ? teach.picture_large : './images/special-teacher.jpg';
   popupTeach.getElementsByClassName('personal-info')[0].innerHTML = `
@@ -52,16 +105,28 @@ function fillPopup(teach) {
     </div>
     <p>${teach.city}, ${teach.country}</p>
     <p>${teach.age}, ${teach.gender[0].toUpperCase()}</p>
+    <p>${bDayGreet}</p>
     <a href="mailto:${email}"><p>${email}</p></a>
     <a href="tel:${phone}"><p>${phone}</p></a>
   `;
   const otherInfo = popupTeach.getElementsByClassName('other-info')[0];
+  console.log(teach.coordinates);
   otherInfo.getElementsByTagName('p')[0].innerText = teach.note ? teach.note : 'No comments';
+  map = map.setView([teach.coordinates.latitude, teach.coordinates.longitude], 13);
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'sk.eyJ1IjoiZG15dHIiLCJhIjoiY2tvbXo1bWt5MDNhbDJ1bXg4Mm0yaDBsNSJ9.DFQH0zPBEeDuQiFGFKGUcw',
+  }).addTo(map);
+  marker = L.marker([teach.coordinates.latitude, teach.coordinates.longitude]).addTo(map);
 }
 
 function loadTopTeachers(teachers) {
   let html = '';
-  teachers.forEach((teach) => {
+  _.forEach(teachers, (teach) => {
     const li = createTopTeacherEntry(teach.full_name,
       teach.favorite,
       teach.country,
@@ -97,21 +162,6 @@ function applyFilters(teachers) {
   return filteredTeachers;
 }
 
-function fillStatTable(teachers) {
-  const tableBody = document.getElementById('stat-table-body');
-  tableBody.innerHTML = '';
-  teachers.forEach((teach) => {
-    const entry = document.createElement('tr');
-    let child = {};
-    ['full_name', 'age', 'gender', 'country'].forEach((key) => {
-      child = document.createElement('td');
-      child.innerText = teach[key];
-      entry.appendChild(child);
-    });
-    tableBody.appendChild(entry);
-  });
-}
-
 async function render() {
   try {
     const res = await fetch(`https://randomuser.me/api/?seed=oleg&${reqParams}`);
@@ -120,36 +170,33 @@ async function render() {
 
     const teachersFiltered = applyFilters(formatted);
     const topList = loadTopTeachers(teachersFiltered);
-
+    console.log(reqParams);
     const favs = document.getElementById('fav-carousel');
     favs.innerHTML = '';
-
     const updateFavorites = function f() {
       favs.innerHTML = '';
-      teachersFiltered.filter((teach) => teach.favorite).slice(0, 5).forEach(
-        (fav) => {
-          const li = document.createElement('li');
-          li.innerHTML = createTopTeacherEntry(fav.full_name,
-            fav.favorite,
-            fav.country,
-            fav.picture_large,
-            fav.id,
-            false);
-          favs.appendChild(li);
-        },
-      );
+      _.forEach(_.slice(_.filter(teachersFiltered, (teach) => teach.favorite), 0, 5), (fav) => {
+        const li = document.createElement('li');
+        li.innerHTML = createTopTeacherEntry(fav.full_name,
+          fav.favorite,
+          fav.country,
+          fav.picture_large,
+          fav.id,
+          false);
+        favs.appendChild(li);
+      });
     };
     if (topList.getAttribute('listener') !== 'true') {
       topList.addEventListener('click', (e) => {
         topList.setAttribute('listener', 'true');
         if (e.originalTarget.className === 'top-name-big') {
           fillPopup(
-            formatted.find((p) => p.id === e.target.parentElement.parentElement.dataset.id),
+            _.find(formatted, (p) => p.id === e.target.parentElement.parentElement.dataset.id),
           );
         }
 
         if (e.originalTarget.className === 'star' && e.target) {
-          const person = formatted.find((p) => p.id === e.target.parentElement.dataset.id);
+          const person = _.find(formatted, (p) => p.id === e.target.parentElement.dataset.id);
           if (person) {
             person.favorite = !person.favorite;
             e.originalTarget.src = `./images/${person.favorite ? 'star.png' : 'star1.png'}`;
@@ -166,8 +213,8 @@ async function render() {
         const searchData = e.target[0].value.split(':');
         let chosenOne;
         if (searchData[0] === 'note') {
-          chosenOne = formatted
-            .find((person) => person.note && person.note.includes(searchData[1]));
+          chosenOne = _.find(formatted,
+            (person) => person.note && person.note.includes(searchData[1]));
         } else {
           chosenOne = findOne(formatted, searchData[0], searchData[1]);
         }
@@ -195,31 +242,24 @@ async function render() {
         document.getElementById('filters').setAttribute('listener', 'true');
         reqParams = `results=${teachCount}`;
         if (document.getElementById('gender-check-filter').checked) {
+          console.log('cockass');
           reqParams += `&gender=${document.getElementById('gender-filter').value}`;
         }
         render();
       });
     }
-    if (document.getElementById('stat').getAttribute('listener') !== 'true') {
-      document.getElementById('stat').addEventListener('click', (e) => {
-        document.getElementById('stat').setAttribute('listener', 'true');
-        if (e.target.nodeName === 'TH') {
-          const sorted = sortBy(formatted, e.target.id.split('-')[1], 1);
-          fillStatTable(sorted.slice(0, 5));
-        }
-      });
-    }
+
     if (document.getElementsByClassName('fav-with-arrows')[0].getAttribute('listener') !== 'true') {
       document.getElementsByClassName('fav-with-arrows')[0]
         .addEventListener('click', (e) => {
           document.getElementsByClassName('fav-with-arrows')[0].setAttribute('listener', 'true');
           fillPopup(
-            formatted.find((p) => p.id === e.originalTarget.parentElement.parentElement.dataset.id),
+            _.find(formatted,
+              (p) => p.id === e.originalTarget.parentElement.parentElement.dataset.id),
           );
         });
     }
 
-    fillStatTable(formatted.slice(0, 5));
     const form = document.getElementById('teacherform');
     if (form.getAttribute('listener') !== 'true') {
       form.addEventListener('submit', (e) => {
@@ -262,6 +302,17 @@ async function render() {
         }
       });
     }
+
+    const count = { male: 0, female: 0 };
+    _.forEach(teachersFiltered, (t) => {
+      if (t.gender === 'Male') {
+        count.male += 1;
+      } else {
+        count.female += 1;
+      }
+    });
+    teacherChart.data.datasets[0].data = [count.male, count.female];
+    teacherChart.update();
   } catch (e) {
     console.log(`Pain: ${e.message}`);
   }

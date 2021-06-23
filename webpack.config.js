@@ -11,7 +11,7 @@ const MinifyPlugin = require("babel-minify-webpack-plugin");
 const devMode = process.env.NODE_ENV !== "production";
 
 const CONFIG = {
-  entry: "./src/js/app.js",
+  entry: ['babel-polyfill', "./src/js/app.js"],
   mode: process.env.NODE_ENV,
   devtool: "cheap-module-source-map",
   output: {

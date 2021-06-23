@@ -9,8 +9,14 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <title>Teachinder</title>
-
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+      
       <link rel="stylesheet" href="./css/app.css">
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
       <script src="https://kit.fontawesome.com/42f1ad770e.js" crossorigin="anonymous"></script>
    </head>
 
@@ -149,8 +155,13 @@
                         reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
                         culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                     <a>toggle map</a>
+                     </p>
+                     <details>
+                        <summary>Toggle map</summary>
+                        <div id="mapid">
+
+                        </div>
+                     </details>
                      
                   </section>
                </article>
@@ -289,56 +300,9 @@
 
          <section id="table-stats">
             <h2 class="main-page-header">Statistics</h2>
-            <table class="tb-stat" id="stat" frame="border" rules="all" cellpadding="4">
-               <thead>
-                  <tr>
-                     <th id="stat-full_name">Name</th>
-                     <th id="stat-age">Age</th>
-                     <th id="stat-gender">Gender</th>
-                     <th id="stat-country">Nationality</th>
-                  </tr>
-               </thead>
-               <tbody id="stat-table-body">
-                  <tr>
-                     <td>John Smith</td>
-                     <td>30</td>
-                     <td>Male</td>
-                     <td>Some country</td>
-                  </tr>
-                  <tr>
-                     <td>John Smith</td>
-                     <td>30</td>
-                     <td>Male</td>
-                     <td>Some country</td>
-                  </tr>
-                  <tr>
-                     <td>John Smith</td>
-                     <td>30</td>
-                     <td>Male</td>
-                     <td>Some country</td>
-                  </tr>
-                  <tr>
-                     <td>John Smith</td>
-                     <td>30</td>
-                     <td>Male</td>
-                     <td>Some country</td>
-                  </tr>
-                  <tr>
-                     <td>John Smith</td>
-                     <td>30</td>
-                     <td>Male</td>
-                     <td>Some country</td>
-                  </tr>
-               </tbody>
-               
-            </table>
-            <div class="table-stat-pages">
-               <a class="selected-page">1</a>
-               <a>2</a>
-               <a>3</a>
-               <span>...</span>
-               <a>Last</a>
-            </div>
+            
+            <canvas id="myChart" width="400" height="400"></canvas>
+            
          </section>
          
          <section class="fav-section">
